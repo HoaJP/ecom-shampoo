@@ -6,7 +6,7 @@ import Collection from './pages/Collection'
 
 const App = () => {
   return (
-    <main>
+    <main className='overflow-hidden text-tertiary'>
       <Header/>
       <Routes>
         <Route path="/" element={<Home />}/>
