@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from './components/Header'
-import { Route, Routes } from 'react-router'
+import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Collection from './pages/Collection'
 
