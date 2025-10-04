@@ -5,6 +5,7 @@ import { dummyProducts } from "../assets/data";
 
 const AppContext = createContext();
 export const AppContextProvider = ({ children }) => {
+  const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
   const { user } = useUser();
   const currency = import.meta.env.VITE_CURRENCY;
@@ -16,7 +17,7 @@ export const AppContextProvider = ({ children }) => {
   useEffect(() => {
     fetchProducts();
   }, []);
-  const value = { navigate, user, products, currency };
+  const value = { navigate, user, products, currency, searchQuery, setSearchQuery};
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
 
