@@ -3,7 +3,7 @@ import { assets } from "./../assets/data";
 
 const Features = () => {
   return (
-    <seaction className="max-padd-container my-10 xl:my-22">
+    <section className="max-padd-container my-10 xl:my-22">
       {/* container */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-[1fr_1fr_1fr_1fr_1fr] gap-6 gap-y-12 items-center rounded-xl">
         <div>
@@ -37,7 +37,7 @@ const Features = () => {
           <p>Luxury beauty products crafted with care excellence.</p>
         </div>
       </div>
-    </seaction>
+    </section>
   );
 };
 
