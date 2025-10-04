@@ -1,10 +1,12 @@
+import { useUser } from "@clerk/clerk-react";
 import React, { createContext, useContext } from "react";
 import { useNavigate } from "react-router";
 
 const AppContext = createContext();
 export const AppContextProvider = ({ children }) => {
     const navigate = useNavigate()
-    const value = {navigate}
+    const {user} = useUser()
+    const value = { navigate, user };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
 

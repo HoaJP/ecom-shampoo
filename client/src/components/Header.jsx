@@ -2,9 +2,12 @@ import { Link } from "react-router-dom";
 import { assets } from "../assets/data.js";
 import Navbar from "./Navbar";
 import { useState } from "react";
+import { useClerk, UserButton } from "@clerk/clerk-react";
+import { useAppContext } from "../context/AppContext.jsx";
 const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
-
+  const { user, navigate } = useAppContext();
+  const { openSignIn } = useClerk();
   const toggleMenu = () => setMenuOpened((prev) => !prev);
   return (
     <header className="absolute top-0 left-0 right-0 z-50 bg-white py-3">
@@ -53,14 +56,37 @@ const Header = () => {
           {/* Cart */}
           <div className="relative cursor-pointer">
             <img src={assets.cartAdded} alt="cart added" className="min-w-7" />
-            <label className="absolute bottom-6 right-0 left-0 text-xs font-bold bg-secondary/15 flexCenter rounded-full">0</label>
+            <label className="absolute bottom-6 right-0 left-0 text-xs font-bold bg-secondary/15 flexCenter rounded-full">
+              0
+            </label>
           </div>
           {/* user profile */}
           <div className="group relative top-1">
-            <button className="btn-secondary flexCenter gap-2 rounded-full">
-              Login
-              <img src={assets.user} alt="user icon" className="invert w-5" />
-            </button>
+            {user ? (
+              <UserButton
+              appearance={{
+                elements:{
+                  userButtonAvatarBox:{
+                    width:'42px',
+                    height:'42px'
+                  }
+                }
+              }}
+              >
+                <UserButton.MenuItems>
+                  <UserButton.Action
+                    label="My Orders"
+                    labelIcon={<i className="ri-shopping-bag-line"></i>}
+                    onClick={() => navigate("/my-orders")}
+                  ></UserButton.Action>
+                </UserButton.MenuItems>
+              </UserButton>
+            ) : (
+              <button onClick={openSignIn} className="btn-secondary flexCenter gap-2 rounded-full">
+                Login
+                <img src={assets.user} alt="user icon" className="invert w-5" />
+              </button>
+            )}
           </div>
         </div>
       </div>
