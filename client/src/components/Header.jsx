@@ -34,6 +34,11 @@ const Header = () => {
         </div>
         {/* Button & Profile icon */}
         <div className="flex flex-1 items-center sm:justify-end gap-x-4 sm:gap-x-8">
+          <div>
+            <button className="btn-outline px-2 py-1 text-xs font-semibold">
+              Dashboard
+            </button>
+          </div>
           {/* Menu Toggle */}
           <div className="relative lg:hidden w-7 h-6 cursor-pointer">
             <img
@@ -64,14 +69,14 @@ const Header = () => {
           <div className="group relative top-1">
             {user ? (
               <UserButton
-              appearance={{
-                elements:{
-                  userButtonAvatarBox:{
-                    width:'42px',
-                    height:'42px'
-                  }
-                }
-              }}
+                appearance={{
+                  elements: {
+                    userButtonAvatarBox: {
+                      width: "42px",
+                      height: "42px",
+                    },
+                  },
+                }}
               >
                 <UserButton.MenuItems>
                   <UserButton.Action
@@ -82,7 +87,10 @@ const Header = () => {
                 </UserButton.MenuItems>
               </UserButton>
             ) : (
-              <button onClick={openSignIn} className="btn-secondary flexCenter gap-2 rounded-full">
+              <button
+                onClick={openSignIn}
+                className="btn-secondary flexCenter gap-2 rounded-full"
+              >
                 Login
                 <img src={assets.user} alt="user icon" className="invert w-5" />
               </button>
