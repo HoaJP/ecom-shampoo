@@ -91,8 +91,6 @@ const Collection = () => {
     const endIndex = startIndex + itemsPerPage;
     return filteredProducts.slice(startIndex, endIndex);
   };
-  console.log(getPaginatedProducts());
-  console.log(products);
 
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
 
