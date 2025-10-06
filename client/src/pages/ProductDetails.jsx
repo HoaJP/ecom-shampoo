@@ -8,7 +8,7 @@ import ProductFeatures from "./../components/ProductFeatures";
 import RelatedProducts from "./../components/RelatedProducts";
 
 const ProductDetails = () => {
-  const { products, currency } = useAppContext();
+  const { products, currency, addToCart } = useAppContext();
   const { productId } = useParams();
   const [image, setImage] = useState(null);
   const [size, setSize] = useState(null);
@@ -80,7 +80,10 @@ const ProductDetails = () => {
               ))}
             </div>
             <div className="flex items-center gap-x-4">
-              <button className="btn-dark sm:w-1/2 flexCenter gap-x-2 capitalize">
+              <button
+                onClick={() => addToCart(product._id, size)}
+                className="btn-dark sm:w-1/2 flexCenter gap-x-2 capitalize"
+              >
                 Add to Cart
                 <img src={assets.cartAdd} width={19} alt="" />
               </button>

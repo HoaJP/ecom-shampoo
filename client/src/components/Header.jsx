@@ -6,7 +6,7 @@ import { useClerk, UserButton } from "@clerk/clerk-react";
 import { useAppContext } from "../context/AppContext.jsx";
 const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
-  const { user, navigate } = useAppContext();
+  const { user, navigate, getCartCount } = useAppContext();
   const { openSignIn } = useClerk();
   const toggleMenu = () => setMenuOpened((prev) => !prev);
   return (
@@ -59,10 +59,10 @@ const Header = () => {
             />
           </div>
           {/* Cart */}
-          <div className="relative cursor-pointer">
+          <div onClick={()=>navigate('/cart')} className="relative cursor-pointer">
             <img src={assets.cartAdded} alt="cart added" className="min-w-7" />
             <label className="absolute bottom-6 right-0 left-0 text-xs font-bold bg-secondary/15 flexCenter rounded-full">
-              0
+              {getCartCount()}
             </label>
           </div>
           {/* user profile */}
