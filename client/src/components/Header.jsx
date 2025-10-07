@@ -28,7 +28,7 @@ const Header = () => {
             containerStyles={`${
               menuOpened
                 ? "flex flex-col items-start gap-y-8 fixed top-16 right-6 p-6 bg-white rounded-xl shadow-md w-52 z-50"
-                : "hidden lg:flex gap-x-5 xl:gap-x-8 medium-15 bg-secondary/10 rounded-full p-1"
+                : "hidden lg:flex flexCenter gap-x-5 xl:gap-x-8 medium-15 bg-secondary/10 rounded-full p-1 flexCenter"
             }`}
           />
         </div>
@@ -59,7 +59,10 @@ const Header = () => {
             />
           </div>
           {/* Cart */}
-          <div onClick={()=>navigate('/cart')} className="relative cursor-pointer">
+          <div
+            onClick={() => navigate("/cart")}
+            className="relative cursor-pointer"
+          >
             <img src={assets.cartAdded} alt="cart added" className="min-w-7" />
             <label className="absolute bottom-6 right-0 left-0 text-xs font-bold bg-secondary/15 flexCenter rounded-full">
               {getCartCount()}
