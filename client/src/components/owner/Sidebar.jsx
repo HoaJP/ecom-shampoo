@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useAppContext } from "../../context/AppContext";
 import { assets } from "../../assets/data";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, Outlet } from "react-router";
 import { UserButton } from "@clerk/clerk-react";
 const Sidebar = () => {
   const { navigate, isOwner, user } = useAppContext();
@@ -21,10 +21,10 @@ const Sidebar = () => {
   }, [isOwner]);
   return (
     <div>
-      <div>
+      <div className="mx-auto max-w-full flex flex-col md:flex-row">
         {/* Sidebar */}
         <div className="max-md:flexCenter flex flex-col justify-between bg-primary sm:m-3 md:min-w-[20%] md:min-h-[97vh] rounded-xl shadow">
-          <div className="flex flex-col gap-y-6 max-md:items-center md:flex-col md:pt-5 ">
+          <div className="flex flex-col gap-y-6 max-md:items-center md:flex-col md:pt-5 w-full">
             <div className="w-full flex justify-between md:flex-col">
               {/* Logo */}
               <div className="flex flex-1 p-3 lg:pl-12">
@@ -90,6 +90,9 @@ const Sidebar = () => {
               {user?.firstName} {user?.lastName}
             </div>
           </div>
+        </div>
+        <div className="flex-1">
+          <Outlet />
         </div>
       </div>
     </div>
