@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 
 const AppContext = createContext();
 export const AppContextProvider = ({ children }) => {
+  const [isOwner, setIsOwner] = useState(true)
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
   const currency = import.meta.env.VITE_CURRENCY;
@@ -78,6 +79,8 @@ export const AppContextProvider = ({ children }) => {
     getCartCount,
     updateCartQuantity,
     getCartAmount,
+    isOwner,
+    setIsOwner
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

@@ -6,7 +6,7 @@ import { useClerk, UserButton } from "@clerk/clerk-react";
 import { useAppContext } from "../context/AppContext.jsx";
 const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
-  const { user, navigate, getCartCount } = useAppContext();
+  const { user, navigate, getCartCount, isOwner } = useAppContext();
   const { openSignIn } = useClerk();
   const toggleMenu = () => setMenuOpened((prev) => !prev);
   return (
@@ -35,9 +35,11 @@ const Header = () => {
         {/* Button & Profile icon */}
         <div className="flex flex-1 items-center sm:justify-end gap-x-4 sm:gap-x-8">
           <div>
-            <button className="btn-outline px-2 py-1 text-xs font-semibold">
-              Dashboard
-            </button>
+            {isOwner && (
+              <button onClick={() => navigate("/owner")} className="btn-outline px-2 py-1 text-xs font-semibold">
+                Dashboard
+              </button>
+            )}
           </div>
           {/* Menu Toggle */}
           <div className="relative lg:hidden w-7 h-6 cursor-pointer">
