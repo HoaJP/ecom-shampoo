@@ -11,8 +11,7 @@ const Title = ({
   return (
     <div className={titleStyles}>
       <h3 className={`${title1Styles} h3 capitalize`}>
-        {title1}
-        <span className="font-light text-secondary">{title2}</span>
+        {title1} <span className="font-light text-secondary">{title2}</span>
       </h3>
       <div className="w-24 h-[3px] rounded-full bg-gradient-to-r from-secondary to-primary" />
       <p className={`${paraStyles} max-w-lg mt-2`}>

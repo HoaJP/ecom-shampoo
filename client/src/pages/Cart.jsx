@@ -44,7 +44,7 @@ const Cart = () => {
     }
   };
   //
-  
+
   return products && cartItems ? (
     <div className="max-padd-container pt-28 bg-primary py-16">
       <div className="flex flex-col xl:flex-row gap-20 xl:gap-28">
@@ -121,8 +121,10 @@ const Cart = () => {
           })}
         </div>
         {/* right side */}
-        <div className="flex-1">
-          <CartTotal />
+        <div className="flex-1 ">
+          <div className="max-w-[379px] w-full bg-white p-5 rounded-xl">
+            <CartTotal />
+          </div>
         </div>
       </div>
     </div>
