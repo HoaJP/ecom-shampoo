@@ -115,7 +115,7 @@ const Collection = () => {
           </div>
           <div className="px-4 py-3 mt-2 bg-white rounded-xl">
             <h5 className="mb-4">Sort By</h5>
-            <div className="flex flex-col gap-2 text-sm font-light">
+            <div className="grid grid-cols-3 lg:grid-cols-1 text-sm font-light gap-2">
               {allCategories.map((cat) => (
                 <label className="flex gap-2 medium-14 text-gray-50" key={cat}>
                   <input
@@ -132,7 +132,7 @@ const Collection = () => {
           </div>
           <div className="px-4 py-3 mt-4 bg-white rounded-xl">
             <h5 className="mb-4">Types</h5>
-            <div className="flex flex-col gap-2 text-sm font-light">
+            <div className="grid grid-cols-3 lg:grid-cols-1 text-sm font-light gap-2">
               {availableTypes.map((t) => (
                 <label key={t} className="flex gap-2 text-gray-500">
                   <input
