@@ -105,16 +105,21 @@ const AddProduct = () => {
               value={newSize}
               type="text"
               placeholder="Size (e.g. 50ml)"
-              className="px-3 py-1.5 ring-slate-900/15 rounded-lg bg-white text-gray-600 mt-1 w-full"
+              className="px-3 py-1.5 ring-slate-900/15 rounded-lg bg-white text-gray-600 mt-1 w-1/3 lg:w-1/4"
             />
             <input
               onChange={(e) => setNewPrice(e.target.value)}
               value={newPrice}
               type="text"
               placeholder="Price"
-              className="px-3 py-1.5 ring-slate-900/15 rounded-lg bg-white text-gray-600 mt-1 w-full"
+              className="px-3 py-1.5 ring-slate-900/15 rounded-lg bg-white text-gray-600 mt-1 w-1/3 lg:w-1/4"
             />
-            <button onClick={addSizePrice}>Add</button>
+            <button
+              onClick={addSizePrice}
+              className="btn-secondary rounded-xl font-light !px-3 !py-1"
+            >
+              Add
+            </button>
           </div>
           <div className="mt-2">
             {sizePrices.map((sp, index) => (
@@ -134,33 +139,36 @@ const AddProduct = () => {
           </div>
         </div>
         {/* Images */}
-        <div className="flex gap-2 mt-2">
-          {Object.keys(images).map((key) => (
-            <label
-              key={key}
-              htmlFor={`productImage${key}`}
-              className="ring-1 ring-slate-900/10 overflow-hidden rounded-xl"
-            >
-              <input
-                onChange={(e) =>
-                  setImages({ ...images, [key]: e.target.files[0] })
-                }
-                type="file"
-                accept="image/* id={`productImage${key}`}"
-                hidden
-              />
-              <div className="h-16 w-22 bg-white flexCenter">
-                <img
-                  src={
-                    images[key]
-                      ? URL.createObjectURL(images[key])
-                      : assets.uploadIcon
+        <div>
+          <h5>Images</h5>
+          <div className="flex gap-2 mt-2">
+            {Object.keys(images).map((key) => (
+              <label
+                key={key}
+                htmlFor={`productImage${key}`}
+                className="ring-1 ring-slate-900/10 overflow-hidden rounded-xl"
+              >
+                <input
+                  onChange={(e) =>
+                    setImages({ ...images, [key]: e.target.files[0] })
                   }
-                  alt=""
+                  type="file"
+                  accept="image/* id={`productImage${key}`}"
+                  hidden
                 />
-              </div>
-            </label>
-          ))}
+                <div className="h-16 w-22 bg-white flexCenter">
+                  <img
+                    src={
+                      images[key]
+                        ? URL.createObjectURL(images[key])
+                        : assets.uploadIcon
+                    }
+                    alt=""
+                  />
+                </div>
+              </label>
+            ))}
+          </div>
         </div>
         <div className="flex gap-2 mt-3">
           <h5>Add to Popular</h5>
@@ -172,13 +180,13 @@ const AddProduct = () => {
             }
           />
         </div>
-          <button
-            type="submit"
-            disabled={loading}
-            className="btn-secondary font-semibold mt-3 p-2 max-w-36 sm:w-full rounded-xl"
-          >
-            {loading ? "Adding" : "Add Product"}
-          </button>
+        <button
+          type="submit"
+          disabled={loading}
+          className="btn-secondary font-semibold mt-3 p-2 max-w-36 sm:w-full rounded-xl"
+        >
+          {loading ? "Adding" : "Add Product"}
+        </button>
       </form>
     </div>
   );
