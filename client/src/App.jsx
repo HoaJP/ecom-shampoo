@@ -15,6 +15,7 @@ import Dashboard from "./pages/owner/Dashboard";
 import Sidebar from "./components/owner/sidebar";
 import AddProduct from "./pages/owner/AddProduct";
 import ListProduct from "./pages/owner/ListProduct";
+import TestI18n from "./pages/TestI18n";
 const App = () => {
   const location = useLocation();
   const isOwner = location.pathname.includes("/owner");
@@ -37,6 +38,9 @@ const App = () => {
             <Route path="/owner/add-product" element={<AddProduct />} />
             <Route path="/owner/list-product" element={<ListProduct />} />
           </Route>
+
+          {/* test language */}
+          <Route path="/test" element={<TestI18n />} />
         </Routes>
       </main>
       {!isOwner && <Footer />}

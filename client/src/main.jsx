@@ -6,7 +6,7 @@ import { BrowserRouter } from "react-router";
 import { AppContextProvider } from "./context/AppContext.jsx";
 import { ClerkProvider } from "@clerk/clerk-react";
 import "remixicon/fonts/remixicon.css";
-
+import "./i18n/i18n";
 // Import your Publishable Key
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
