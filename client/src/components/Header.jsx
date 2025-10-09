@@ -4,7 +4,9 @@ import Navbar from "./Navbar";
 import { useState } from "react";
 import { useClerk, UserButton } from "@clerk/clerk-react";
 import { useAppContext } from "../context/AppContext.jsx";
+import { useTranslation } from "react-i18next";
 const Header = () => {
+  const {t} = useTranslation('navbar')
   const [menuOpened, setMenuOpened] = useState(false);
   const { user, navigate, getCartCount, isOwner } = useAppContext();
   const { openSignIn } = useClerk();
@@ -36,8 +38,11 @@ const Header = () => {
         <div className="flex flex-1 items-center sm:justify-end gap-x-4 sm:gap-x-8">
           <div>
             {isOwner && (
-              <button onClick={() => navigate("/owner")} className="btn-outline px-2 py-1 text-xs font-semibold">
-                Dashboard
+              <button
+                onClick={() => navigate("/owner")}
+                className="btn-outline px-2 py-1 text-xs font-semibold text-nowrap"
+              >
+                {t("Dashboard.Dashboard")}
               </button>
             )}
           </div>

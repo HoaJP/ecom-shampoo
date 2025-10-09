@@ -1,27 +1,25 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
+import NAVBAR_EN from "../locales/en/navbar.json";
+import NAVBAR_VI from "../locales/vi/navbar.json";
+export const locales = {
+  en: "English",
+  vi: "Tiếng Việt",
+};
 const resources = {
   en: {
-    translation: {
-      welcome: "Welcome to our website",
-      language: "Language",
-      description: "This is a multilingual React app",
-    },
+    navbar: NAVBAR_EN,
   },
   vi: {
-    translation: {
-      welcome: "Chào mừng bạn đến với trang web của chúng tôi",
-      language: "Ngôn ngữ",
-      description: "Đây là ứng dụng React đa ngôn ngữ",
-    },
+    navbar: NAVBAR_VI,
   },
 };
 i18n.use(initReactI18next).init({
-    resources,
-    lng: "vi",
-    fallbackLng: "en",
-    interpolation: {
-      escapeValue: false,
-    },
-})
-
+  resources,
+  lng: "vi",
+  ns: ["navbar"],
+  fallbackLng: "vi",
+  interpolation: {
+    escapeValue: false,
+  },
+});

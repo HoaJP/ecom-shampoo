@@ -1,0 +1,11 @@
+{
+  "Header": {
+    "Home": "Home",
+    "Collection": "Collection",
+    "Blog": "Blog",
+    "Contact": "Contact"
+  },
+  "Dashboard": {
+    "Dashboard": "Dashboard"
+  }
+}

@@ -1,7 +1,9 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router";
 
 const Navbar = ({ containerStyles, setMenuOpened }) => {
+  const { t, i18n } = useTranslation();
   const navLinks = [
     { path: "/", title: "Home" },
     { path: "/collection", title: "Collection" },
@@ -19,7 +21,9 @@ const Navbar = ({ containerStyles, setMenuOpened }) => {
             `${isActive ? "active-link" : ""} p-2 px-4 rounded-full capitalize`
           }
         >
-          {link.title}
+          {/* {link.title} */}
+          {/* {t(`header.${link.title}`)} */}
+          {t(`Header.${link.title}`)}
         </NavLink>
       ))}
     </nav>

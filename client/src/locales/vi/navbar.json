@@ -1,0 +1,11 @@
+{
+    "Header":{
+      "Home": "Trang chủ",
+      "Collection": "Bộ sưu tập",
+      "Blog": "Bài viết",
+      "Contact": "Liên lạc"
+    },
+    "Dashboard":{
+        "Dashboard": "Điều kiển"
+    }
+}
